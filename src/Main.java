@@ -1,5 +1,8 @@
 import print.Messages;
 import read.Keyboard;
+import schedule.Service;
+//import schedule.Service;
+
 import java.util.TreeMap;
 
 
@@ -11,6 +14,7 @@ public class Main {
         menuItems.put("2", "Create a new client card.");
         menuItems.put("3", "Schedule School Board deliveries.");
 
+        //  ToDo:  Menu print MUST happen from here, farm messages out to print.Messages
         //  PRINT original menu
         Messages.menu();
 
@@ -22,7 +26,7 @@ public class Main {
         //  SWITCH on currentTask
         switch(currentTask) {
             case "1":
-                System.out.println("SWITCH1 - Schedule Service for an existing client.");
+                Service.newSO();
                 break;
             case "2":
                 System.out.println("SWITCH2 - Create a new client card.");
@@ -34,42 +38,10 @@ public class Main {
                 break;
         }
 
-
         //  ToDo: clear the screen (not working)
         //  https://www.javatpoint.com/how-to-clear-screen-in-java#Platform-Specific-Command
         //  Will canned cls work in compiled execution?
         //  CLEAR the IDE console window
         Messages.clearConsoleWindow();
-
-        // ToDo:
-        //  println/input: can I get your first and last name?
-        //  > echo back as LASTNAME, FIRSTNAME
-        //  > loop/verify if this is correct
-        System.out.println("Thank you for calling Motion in Kitchener.  This is Bob speaking, how can I help?");
-
-        // ToDo:
-        //  println: save to var named concern
-        System.out.println("What seems to be the issue today");
-        String CONCERN = Keyboard.inbound();
-        System.out.println(CONCERN);
-
-        // ToDo:
-        //  println: empathize - not apologize   to urgency var
-        Messages.empathize();
-
-        // ToDo:
-        //  println: confirm the make/model of the device you are calling about
-        //  input make to var
-        //  input model to var
-
-        //  ToDo:
-        // make sure the make and model concern string is split for length to NAVs threshold
-
-        //  ToDo:
-        // As you are needing 'things' - out them to a txt file on new lines for easier clipboard transfer
     }
-
-
-
-
 }

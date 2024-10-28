@@ -14,11 +14,15 @@ public class Messages {
         String greeting = """
                 Welcome to the Motion Customer Care Specialist Task Simplifier
                 
-                What task are you trying to accomplish?:
-                Enter a number for the task at hand:""";
+                What task are you trying to accomplish?:""";
+
         System.out.println();
 
         System.out.println(greeting);
+        System.out.println();
+        System.out.println("Enter a number for the task at hand:");
+
+
     }
 
     public static void clearConsoleWindow() {
