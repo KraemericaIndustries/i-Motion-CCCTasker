@@ -13,8 +13,7 @@ public class Messages {
         //  ToDo: Instead of a String, make this a MAP <k, v> of type ,int, String>
         String greeting = """
                 Welcome to the Motion Customer Care Specialist Task Simplifier
-                
-                What task are you trying to accomplish?:""";
+                \nWhat task are you trying to accomplish?:""";
 
         System.out.println();
 
@@ -31,7 +30,7 @@ public class Messages {
 
     public static void empathize() {
         String empathy_script = """
-                I regret to hear of this predicament.
+                \nI regret to hear of this predicament.
                 Can you help me to understand how this is impacting you?
                 Do you have a back-up device you can utilize in the meantime?
                 Is the situation urgent?
