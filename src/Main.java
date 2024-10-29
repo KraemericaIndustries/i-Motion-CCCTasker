@@ -41,6 +41,6 @@ public class Main {
         //  ToDo: clear the screen (not working)
         //  https://www.javatpoint.com/how-to-clear-screen-in-java#Platform-Specific-Command
         //  Will canned cls work in compiled execution?
-        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
+//        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
     }
 }
