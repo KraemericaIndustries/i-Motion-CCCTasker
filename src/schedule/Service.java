@@ -3,8 +3,11 @@ package schedule;
 import print.Messages;
 import read.Keyboard;
 
+import java.util.LinkedHashMap;
+
 public class Service {
 
+    static LinkedHashMap<String, String> callDetails = new LinkedHashMap<>();
 
 //    public static void schoolBoard() {
 //  ToDo:  Can Hank do it?  He is 'school board guy'
@@ -29,70 +32,46 @@ public class Service {
             """;
 
         Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-        System.out.println(greeting);
+//        System.out.println(greeting);
 
         //  CAPTURE client concern...
-        String CONCERN = Keyboard.inbound();
-        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-        System.out.println("CONCERN: " + CONCERN);
+        gatherNeededInfo("CONCERN", greeting);
 
         //  ESTABLISH Impact...
-//        Messages.empathize();
-        System.out.println("I regret to hear of this predicament.  Can you help me to understand how this is impacting you?");
-        String IMPACT = Keyboard.inbound();
-        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-        System.out.println("CONCERN: " + CONCERN);
-        System.out.println("IMPACT: " + IMPACT);
+        gatherNeededInfo("IMPACT", "I regret to hear of this predicament.  Can you help me to understand how this is impacting you?");
 
         //  ESTABLISH Backup...
-        System.out.println("Do you have an alternative available to you (another device so you can continue to get around?)");
-        String BACKUP = Keyboard.inbound();
-        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-        System.out.println("CONCERN: " + CONCERN);
-        System.out.println("IMPACT: " + IMPACT);
-        System.out.println("BACKUP: " + BACKUP);
+        gatherNeededInfo("BACKUP", "Do you have an alternative available to you (another device so you can continue to get around?)");
 
         //  ESTABLISH Urgency...
-//        Messages.empathize();
-        System.out.println("Is this situation URGENT?  If yes, please help me to understand why.");
-        String URGENCY = Keyboard.inbound();
-        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-        System.out.println("CONCERN: " + CONCERN);
-        System.out.println("IMPACT: " + IMPACT);
-        System.out.println("BACKUP: " + BACKUP);
-        System.out.println("URGENCY: " + URGENCY);
+        gatherNeededInfo("URGENCY", "Is this situation URGENT?  If yes, please help me to understand why.");
 
         //  ESTABLISH firstname...
-        System.out.println("Can I confirm the spelling of your first name?");
-        String FIRSTNAME = Keyboard.inbound();
-        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-        System.out.println("FIRSTNAME: " + FIRSTNAME);
+        gatherNeededInfo("FIRSTNAME", "Can I confirm the spelling of your first name?");
 
         //  ESTABLISH lastname...
-        System.out.println("Can I confirm the spelling of your last name?");
-        String LASTNAME = Keyboard.inbound();
-        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-        System.out.println("CONCERN: " + CONCERN);
-        System.out.println("IMPACT: " + IMPACT);
-        System.out.println("BACKUP: " + BACKUP);
-        System.out.println("URGENCY: " + URGENCY);
-        System.out.println("FIRSTNAME: " + FIRSTNAME);
-        System.out.println("LASTNAME: " + LASTNAME);
+        gatherNeededInfo("LASTNAME", "Can I confirm the spelling of your last name?");
 
+        // ToDo:
+        //  > loop/verify if this is correct
+        // make sure the make and model concern string is split for length to NAVs threshold
 
         // ToDo:
         //  println: confirm the make/model of the device you are calling about
         //  input make to var
         //  input model to var
 
-        //  ToDo: Take your String vars, and create and pretty-print yet another treemap
-        //  extract each block to a method with a String parameter for distinct console echos
-
-        // ToDo:
-        //  > loop/verify if this is correct
-        // make sure the make and model concern string is split for length to NAVs threshold
-
         //  ToDo:
         // As you are needing 'things' - out them to a txt file on new lines for easier clipboard transfer
+    }
+
+    public static void gatherNeededInfo(String detail, String question) {
+
+        System.out.println(question);
+        String answer = Keyboard.inbound();
+        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
+        callDetails.put(detail, answer);
+        System.out.println(callDetails);
+
     }
 }
