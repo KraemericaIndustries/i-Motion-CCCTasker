@@ -4,26 +4,6 @@ import com.sun.tools.javac.Main;
 
 public class Messages {
 
-    public static void menu() {
-
-
-
-
-
-        //  ToDo: Instead of a String, make this a MAP <k, v> of type ,int, String>
-        String greeting = """
-                Welcome to the Motion Customer Care Specialist Task Simplifier
-                \nWhat task are you trying to accomplish?:""";
-
-        System.out.println();
-
-        System.out.println(greeting);
-        System.out.println();
-        System.out.println("Enter a number for the task at hand:");
-
-
-    }
-
     public static void clearConsoleWindow() {
         for(int i = 0; i < 20; i++) System.out.println("\n");  //  CLEAR the IDE console window
     }

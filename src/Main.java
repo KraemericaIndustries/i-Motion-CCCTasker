@@ -1,24 +1,27 @@
-import print.Messages;
 import read.Keyboard;
 import schedule.Service;
-//import schedule.Service;
-
-import java.util.TreeMap;
-
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 public class Main {
+
+    static LinkedHashMap<String, String> menuItems = new LinkedHashMap<>();
+
     public static void main(String[] args) {
 
-        TreeMap<String, String> menuItems = new TreeMap<>();
         menuItems.put("1", "Schedule Service for an existing client.");
         menuItems.put("2", "Create a new client card.");
         menuItems.put("3", "Schedule School Board deliveries.");
 
-        //  ToDo:  Menu print MUST happen from here, farm messages out to print.Messages
-        //  PRINT original menu
-        Messages.menu();
-
-        System.out.println(menuItems);
+        String greeting = """
+                Welcome to the Motion Customer Care Specialist Task Simplifier
+                \nWhat task are you trying to accomplish?:""";
+        System.out.println();
+        System.out.println(greeting);
+        System.out.println();
+        prettyPrintLinkedHashMap();
+        System.out.println();
+        System.out.println("Enter a number for the task at hand:");
 
         //  GET a selection
         String currentTask = Keyboard.inbound();
@@ -37,10 +40,15 @@ public class Main {
             default:
                 break;
         }
+    }
 
-        //  ToDo: clear the screen (not working)
-        //  https://www.javatpoint.com/how-to-clear-screen-in-java#Platform-Specific-Command
-        //  Will canned cls work in compiled execution?
-//        Messages.clearConsoleWindow();  //  CLEAR the IDE console window
+    private static void prettyPrintLinkedHashMap() {
+
+        Set<String> keys = menuItems.keySet();
+
+        // printing the elements of LinkedHashMap
+        for (String key : keys) {
+            System.out.println(key + ") " + menuItems.get(key));
+        }
     }
 }

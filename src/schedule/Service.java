@@ -2,8 +2,8 @@ package schedule;
 
 import print.Messages;
 import read.Keyboard;
-
 import java.util.LinkedHashMap;
+import java.util.Set;
 
 public class Service {
 
@@ -30,9 +30,9 @@ public class Service {
             "Thank you for calling Motion in Kitchener.  This is Bob speaking, how can I help?"
             "What seems to be the issue today?"
             """;
-
+        //  RESOURCE: https://www.javatpoint.com/how-to-clear-screen-in-java#Platform-Specific-Command
+        //   > Will canned cls work in compiled execution?
         Messages.clearConsoleWindow();  //  CLEAR the IDE console window
-//        System.out.println(greeting);
 
         //  CAPTURE client concern...
         gatherNeededInfo("CONCERN", greeting);
@@ -53,13 +53,13 @@ public class Service {
         gatherNeededInfo("LASTNAME", "Can I confirm the spelling of your last name?");
 
         // ToDo:
-        //  > loop/verify if this is correct
+        //  build in a  data entry checker/re-entry loop to verify information entered is correct, with opportunity to change
         // make sure the make and model concern string is split for length to NAVs threshold
 
         // ToDo:
-        //  println: confirm the make/model of the device you are calling about
-        //  input make to var
-        //  input model to var
+        //  println: confirm the make/model of the device you are calling about??
+        //  input make to var?
+        //  input model to var?
 
         //  ToDo:
         // As you are needing 'things' - out them to a txt file on new lines for easier clipboard transfer
@@ -71,7 +71,18 @@ public class Service {
         String answer = Keyboard.inbound();
         Messages.clearConsoleWindow();  //  CLEAR the IDE console window
         callDetails.put(detail, answer);
-        System.out.println(callDetails);
+//        System.out.println(callDetails);
+        prettyPrintLinkedHashMap();
 
+    }
+
+    private static void prettyPrintLinkedHashMap() {
+
+        Set<String> keys = callDetails.keySet();
+
+        // printing the elements of LinkedHashMap
+        for (String key : keys) {
+            System.out.println(key + ": " + callDetails.get(key));
+        }
     }
 }
