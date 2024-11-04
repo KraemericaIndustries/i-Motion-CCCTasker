@@ -52,6 +52,9 @@ public class Service {
         //  ESTABLISH lastname...
         gatherNeededInfo("LASTNAME", "Can I confirm the spelling of your last name?");
 
+        //  CONFIRM accuracy of gathered information...
+        checkAccuracy();
+
         // ToDo:
         //  build in a  data entry checker/re-entry loop to verify information entered is correct, with opportunity to change
         // make sure the make and model concern string is split for length to NAVs threshold
@@ -73,7 +76,6 @@ public class Service {
         callDetails.put(detail, answer);
 //        System.out.println(callDetails);
         prettyPrintLinkedHashMap();
-
     }
 
     private static void prettyPrintLinkedHashMap() {
@@ -81,8 +83,28 @@ public class Service {
         Set<String> keys = callDetails.keySet();
 
         // printing the elements of LinkedHashMap
+        System.out.println("DETAIL: VALUE\n============================");
         for (String key : keys) {
             System.out.println(key + ": " + callDetails.get(key));
         }
+        System.out.println("\n");
+    }
+
+    private static void checkAccuracy() {
+
+        String inputCorrect;
+
+        do {
+            System.out.println("Are the above values correct?:");
+            inputCorrect = read.Keyboard.inbound();
+            if(inputCorrect.equals("Y")) {
+                //  ToDo: out LASTNAME, FIRSTNAME to console
+                break;
+            } else {
+                System.out.println("Type the NAME of the DETAIL that needs it's value changed:");
+                //  ToDo: another pair of keyboard reads, and update the map following
+            }
+            inputCorrect = read.Keyboard.inbound();
+        } while (inputCorrect.equals("N"));
     }
 }
